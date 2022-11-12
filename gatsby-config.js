@@ -11,6 +11,7 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -35,7 +36,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: guid || 'UA-XXX-1',
+        trackingId: guid || 'G-B8RT6WZ7RY',
         // Puts tracking script in the head instead of the body
         head: false
       }
