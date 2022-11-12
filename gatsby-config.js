@@ -1,3 +1,4 @@
+/*eslint linebreak-style: ["error", "windows"]*/
 const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
 
 module.exports = {

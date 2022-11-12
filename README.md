@@ -3,9 +3,6 @@
 Serif is a beautiful small business theme for Gatsby. It contains content types for the archetypical small business website. The theme is fully responsive, blazing fast and artfully illustrated.
 
 [Live Demo](https://gatsby-serif.netlify.com/) | 
-[Zerostatic Themes](https://www.zerostatic.io/)
-
-<a href="https://www.buymeacoffee.com/zerostatic" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ![Gatsby Serif Theme screenshot](https://www.zerostatic.io/theme/gatsby-serif/gatsby-serif-screenshot.png)
 
