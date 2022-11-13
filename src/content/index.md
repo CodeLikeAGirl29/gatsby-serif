@@ -5,6 +5,6 @@ intro_image_absolute: true
 intro_image_hide_on_mobile: true
 ---
 
-# Serif - A Gatsby Business Theme.
+# Serif - The DEsigner of Your Success
 
-Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+Create an online presense that you can be proud of. Isn't it about time to invest in your _brand_?
