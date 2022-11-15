@@ -9,13 +9,13 @@
     "build": "gatsby build"
   },
   "engines": {
-    "node": ">=16.x"
+    "node": ">=14"
   },
   "engineStrict": true,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@netlify/plugin-gatsby": "^3.4.8",
-    "gatsby": "^4.24.8",
+    "gatsby": "^5.0.1",
     "gatsby-plugin-google-analytics": "^2.2.1",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-react-helmet": "^6.0.0",
@@ -23,7 +23,6 @@
     "gatsby-source-filesystem": "^5.0.0",
     "gatsby-transformer-json": "^5.0.0",
     "gatsby-transformer-remark": "^6.0.0",
-    "lru-cache": "^7.14.1",
     "postcss": "^8.3.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
