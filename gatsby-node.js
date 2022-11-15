@@ -10,7 +10,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: slug
     });
   }
 };
@@ -82,7 +82,7 @@ exports.createPages = ({ graphql, actions }) => {
 						}
 					}
 				`
-      ).then((result) => {
+      ).then(result => {
         result.data.services.edges.forEach(({ node }) => {
           const component = path.resolve('src/templates/service.js');
           createPage({
@@ -91,8 +91,8 @@ exports.createPages = ({ graphql, actions }) => {
               : node.fields.slug,
             component,
             context: {
-              id: node.id,
-            },
+              id: node.id
+            }
           });
         });
         result.data.team.edges.forEach(({ node }) => {
@@ -103,8 +103,8 @@ exports.createPages = ({ graphql, actions }) => {
               : node.fields.slug,
             component,
             context: {
-              id: node.id,
-            },
+              id: node.id
+            }
           });
         });
         result.data.basic.edges.forEach(({ node }) => {
@@ -120,8 +120,8 @@ exports.createPages = ({ graphql, actions }) => {
               : node.fields.slug,
             component,
             context: {
-              id: node.id,
-            },
+              id: node.id
+            }
           });
         });
         resolve();
