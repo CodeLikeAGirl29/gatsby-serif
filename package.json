@@ -9,7 +9,7 @@
     "build": "gatsby build"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=16.x"
   },
   "engineStrict": true,
   "dependencies": {
@@ -23,6 +23,7 @@
     "gatsby-source-filesystem": "^5.0.0",
     "gatsby-transformer-json": "^5.0.0",
     "gatsby-transformer-remark": "^6.0.0",
+    "lru-cache": "^7.14.1",
     "postcss": "^8.3.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
