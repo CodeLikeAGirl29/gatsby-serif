@@ -10,7 +10,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug
+      value: slug,
     });
   }
 };
@@ -22,102 +22,110 @@ exports.createPages = ({ graphql, actions }) => {
     resolve(
       graphql(
         `
-          query {
-            services: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "content/services\/.*/" } }
-              sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  excerpt
-                  frontmatter {
-                    title
-                    date(formatString: "DD MMMM YYYY")
-                  }
-                  fields {
-                    slug
-                  }
-                }
-              }
-            }
-            team: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "content/team\/.*/" } }
-              sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  excerpt
-                  frontmatter {
-                    title
-                    promoted
-                    image
-                    date(formatString: "DD MMMM YYYY")
-                  }
-                  fields {
-                    slug
-                  }
-                }
-              }
-            }
-            basic: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "content/basic\/.*/" } }
-            ) {
-              edges {
-                node {
-                  id
-                  excerpt
-                  html
-                  frontmatter {
-                    title
-                    path
-                    template
-                  }
-                  fields {
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        `,
-      ).then(result => {
+					query {
+						services: allMarkdownRemark(
+							filter: { fileAbsolutePath: { regex: "content/services/.*/" } }
+							sort: { fields: [frontmatter___date], order: DESC }
+						) {
+							edges {
+								node {
+									id
+									excerpt
+									frontmatter {
+										title
+										date(formatString: "MMM DD YYYY")
+									}
+									fields {
+										slug
+									}
+								}
+							}
+						}
+						team: allMarkdownRemark(
+							filter: { fileAbsolutePath: { regex: "content/team/.*/" } }
+							sort: { fields: [frontmatter___date], order: DESC }
+						) {
+							edges {
+								node {
+									id
+									excerpt
+									frontmatter {
+										title
+										promoted
+										image
+										date(formatString: "DD MMMM YYYY")
+									}
+									fields {
+										slug
+									}
+								}
+							}
+						}
+						basic: allMarkdownRemark(
+							filter: { fileAbsolutePath: { regex: "content/basic/.*/" } }
+						) {
+							edges {
+								node {
+									id
+									excerpt
+									html
+									frontmatter {
+										title
+										path
+										template
+									}
+									fields {
+										slug
+									}
+								}
+							}
+						}
+					}
+				`
+      ).then((result) => {
         result.data.services.edges.forEach(({ node }) => {
           const component = path.resolve('src/templates/service.js');
           createPage({
-            path: node.frontmatter.path ? node.frontmatter.path : node.fields.slug,
+            path: node.frontmatter.path
+              ? node.frontmatter.path
+              : node.fields.slug,
             component,
             context: {
-              id: node.id
-            }
+              id: node.id,
+            },
           });
         });
         result.data.team.edges.forEach(({ node }) => {
           const component = path.resolve('src/templates/team.js');
           createPage({
-            path: node.frontmatter.path ? node.frontmatter.path : node.fields.slug,
+            path: node.frontmatter.path
+              ? node.frontmatter.path
+              : node.fields.slug,
             component,
             context: {
-              id: node.id
-            }
+              id: node.id,
+            },
           });
         });
         result.data.basic.edges.forEach(({ node }) => {
           let component = path.resolve('src/templates/basic.js');
           if (node.frontmatter.template) {
-            component = path.resolve(`src/templates/${node.frontmatter.template}.js`);
+            component = path.resolve(
+              `src/templates/${node.frontmatter.template}.js`
+            );
           }
           createPage({
-            path: node.frontmatter.path ? node.frontmatter.path : node.fields.slug,
+            path: node.frontmatter.path
+              ? node.frontmatter.path
+              : node.fields.slug,
             component,
             context: {
-              id: node.id
-            }
+              id: node.id,
+            },
           });
         });
         resolve();
-      }),
+      })
     );
   });
 };
